@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--https://softdev.ppls.ed.ac.uk/online_experiments/02_first.html-->
+<html>
+<head>
+    <title>My experiment</title>
+    <!--加载插件-->
+<!--    <script src="jspsych-8.2.1/dist/jspsych.js"></script>-->
+<!--    <script src="jspsych-8.2.1/dist/plugin-html-keyboard-response.js"></script>-->
+<!--    <link href="jspsych-8.2.1/dist/jspsych.css"-->
+<!--              rel="stylesheet" type="text/css" />-->
+    <script src="https://unpkg.com/jspsych@latest"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@latest"></script>
+    <!--导入 jsPsych 样式表，它会为实验应用一组基本的视觉样式-->
+    <link href="https://unpkg.com/jspsych@latest/css/jspsych.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+</body>
+
+<script>
+    const jsPsych = initJsPsych();
+
+    let hello_trial = {
+        /*声明一个使用 html-keyboard-response 插件的试验，我们需要创建一个对象，
+        并将类型属性设置为 jsPsychHtmlKeyboardResponse。我们可以在同一个对象中指定插件的其他参数。
+        这里我们使用 stimulus 参数来包含一条消息。你可以在其文档页面上查看每个插件的完整参数列表。*/
+        type: jsPsychHtmlKeyboardResponse,
+        stimulus: 'Hello world!'
+    }
+    /*现在我们已经定义了试验，需要告诉 jsPsych 运行一个由该试验组成的实验。
+    这需要使用 jsPsych.run 函数，并传入一个时间线。对于这样一个简单的实验，时间线只是一个包含要运行的试验列表的数组。*/
+    jsPsych.run([hello_trial]);
+
+</script>
+
+</html>
